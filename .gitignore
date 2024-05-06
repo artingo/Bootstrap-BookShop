@@ -1,0 +1,11 @@
+### IntelliJ IDEA ###
+.idea
+
+### Visual Studio Code ###
+.vscode
+
+### MacOS ###
+.DS_Store
+
+### Windows ###
+Thumbs.db
