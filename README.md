@@ -120,4 +120,7 @@ Follow these steps to implement the book shop:
    </script>
    ```
 
+### Partialize the other pages
+In all other HTML files, replace the    static HTML sections with dynamic Handlebars scripts. 
+
 
