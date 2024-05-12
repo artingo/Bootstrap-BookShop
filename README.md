@@ -1,14 +1,14 @@
 # Bootstrap Course
 
-This project is meant to teach Bootstrap fundamentals by creating a book shop, step by step. <br/>
-It uses [Bootstrap 5](https://getbootstrap.com) pages, [Handlebars](https://handlebarsjs.com/guide/) templating, some [JavaScript](https://www.w3schools.com/js/) and the [Bookly](https://templatesjungle.com/downloads/bookly-bookstore-ecommerce-bootstrap-website-template/) E-Commerce theme, and it stores it's data in the browser's LocalStorage.
+This project is meant to teach Bootstrap fundamentals by creating a bookshop, step by step. <br/>
+It uses [Bootstrap 5](https://getbootstrap.com) pages, [Handlebars](https://handlebarsjs.com/guide/) templating, some [JavaScript](https://www.w3schools.com/js/) and the [Bookly](https://templatesjungle.com/downloads/bookly-bookstore-ecommerce-bootstrap-website-template/) E-Commerce theme, and it stores its data in the browser's LocalStorage.
 
 This is how the final shop looks like:
 
 ![Book Shop Screenshot](images/bookshop.png)<br/>
 <br/>
 
-Follow these steps to implement the book shop:
+Follow these steps to implement the bookshop:
 ## 1. Create project and folders
 1. In your IDE, create a new Bootstrap project:<br/>
    ![Bootstrap](images/new-project.png)
@@ -47,7 +47,7 @@ Follow these steps to implement the book shop:
 
 1. In the HTML `head` section add 2 `script tags:
    ```html
-   <script src="js/vendors/handlebars.min-v4.7.8.js"></script>
+   <script src="js/vendors/handlebars.min.js"></script>
    <script src="js/vanilla.js"></script>
    ```
 2. Create a [partials](partials) folder for header, footer and other templates.
@@ -123,4 +123,138 @@ Follow these steps to implement the book shop:
 ### Partialize the other pages
 In all other HTML files, replace the    static HTML sections with dynamic Handlebars scripts. 
 
+## 4. Populate shop with dynamic data
+### Load books from an external file
+To keep the store flexible, it is important to be able to load the books from outside. To do this, we need to load the book data from an external file. We use the "JSON" format, which is very common and can be exported from many data sources.
+1. In the [js](js) folder, create a [data.js](js/data.js) file that contains the book data. It may look like this:
+   ```javascript
+   const data = {
+      "books": [
+        {
+           "id": 1,
+           "title": "20000 Leagues Under the Sea",
+           "author": "Verne, Jules",
+           "genre": "fiction",
+           "publisher": "Wordsworth",
+           "price": 19.7,
+           "image": "https://m.media-amazon.com/images/I/913ii-IVEXL._AC_UY218_.jpg"
+        },
+        ...
+      ]
+   }
+   ```
+2. In the [index.html](index.html) file, add a `<script>` tag to load that data file.
+   ```html
+   <head>
+     <script src="js/vendors/handlebars.min.js"></script>
+     <script src="js/vanilla.js"></script>
+     <script src="js/data.js"></script>
+   ...
+   </head>
+   ```   
+3. Load the index page in the browser, open a JavaScript console by pressing CTRL + SHIFT + J (Windows / Linux) or COMMAND + OPTION + J (macOS). Type this command in the console to check the proper data loading: `console.log(data)`. It should prompt the books as seen on this screenshot:<br/>
+   ![JavaScript console](images/javascript-console.png)
 
+### Display books on overview page
+1. Now it is time to display the books' data on the index page. Iterate over the books with `#each books`. 
+2. Within the loop you can display each field by using its name, e.g. `{{title}}`. 
+3. If there is no image data, you may replace it with a placeholder image, using Handlebars' `if else` helper. 
+4. The resulting code may look like this:
+   ```handlebars
+   <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-2 row-cols-1">
+     {{#each books}}
+     <div class="col mb-4">
+       <div class="card border rounded-3">
+         <img src="{{#if image}}{{image}}{{else}}images/book-placeholder.png{{/if}}" 
+              class="img-fluid shadow-sm" alt="{{title}}">
+         <h6><a href="details.html?id={{id}}">{{title}}</a></h6>
+         <div>
+           <p>{{author}}</p>
+         </div>
+         <span>${{price}}</span>
+         <div>
+           <button type="button" href="#" class="btn btn-dark">
+             <svg class="cart"><use xlink:href="#cart"></use></svg>
+           </button>
+         </div>
+       </div>
+     </div>
+     {{/each}}
+   </div>
+   ```   
+5. The shop should now display all your books, like in the screenshot:<br/>
+   ![Shop with data](images/shop-with-data.png)
+
+
+### Enable pagination
+Now, we can see all 209 books from the [data](js/data.js) file but these are too many entries at once. To handle this, we introduce a `pagination`, i.e. show only 15 books at once and offer a navigation to the next / previous page. 
+1. In the [js](js) folder, create an [index.js](js/index.js) JavaScript file to handle the JavaScript code for the index page. Write a function that handles the pagination of the books array: `function paginate(books)`
+2. We want to control the pagination via the URL parameter "page". So we query this parameter in our function. If no parameter is present, we use `1` as our default value.
+   ```javascript
+   const params = new URLSearchParams(location.search)
+   const currentPage = parseInt(params.get('page')) || 1
+   ```
+3. Next, we want to calculate the `pageCount` to know how many pagination entries we need to create.
+   ```javascript
+   const totalBooks = books.length
+   const size = 15
+   const pageCount = Math.ceil(totalBooks / size)
+   ```
+4. We use a `pages` array to model the pagination entries. Inside, the `page` contains the number of the current pagination page, while `active` marks the current page that needs to be highlighted.
+   ```javascript
+   const pages = Array.from({length: pageCount}, function (value, index) {
+     const page = index + 1
+     return {
+       page: page,
+       active: page === currentPage ? 'active' : ''
+     }
+   })
+   ```
+5. We also want to display the current book list section with `from`, `to` and `totalBooks`. 
+   ```javascript
+   let from = (currentPage - 1) * size
+   const to = from + size
+   const totalBooks = books.length
+   ```
+6. Next, we send this data to the `render()` function within [vanilla.js](js/vanilla.js).
+   ```javascript
+   render({
+     books: books.slice(from, to),
+   
+     from: ++from,
+     to: to,
+     totalBooks: totalBooks,
+
+     currentPage: currentPage,
+     pages: pages,
+     prevPage: Math.max(currentPage - 1, 1),
+     nextPage: Math.min(currentPage + 1, pageCount)
+   })
+   ```
+7. To show the `from`, `to` and `totalBooks` values, open the index file and scroll to the `showing-product` section. Insert this code:
+   ```handlebars
+   <div class="showing-product">
+     <p>Showing {{from}}–{{to}} of {{totalBooks}} results</p>
+   </div>
+   ```
+8. To show the pagination links, scroll to the `Page navigation` section and insert this code:
+   ```handlebars
+   <nav class="py-5" aria-label="Page navigation">
+     <ul class="pagination justify-content-center gap-4">
+       <li class="page-item">
+         <a class="page-link" href="?page={{prevPage}}">&lt;</a>
+       </li>
+       {{#each pages}}
+       <li class="page-item {{active}}">
+         <a class="page-link" href="?page={{page}}">{{page}}</a>
+       </li>
+       {{/each}}
+       <li class="page-item">
+         <a class="page-link" href="?page={{nextPage}}">&gt;</a>
+       </li>
+     </ul>
+   </nav>
+   ```
+9. The result should look like this:<br/>
+   ![Pagination screenshot](images/pagination.png)
+10. Test the proper pagination by clicking the links!

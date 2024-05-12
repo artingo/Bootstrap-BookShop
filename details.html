@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Details</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="js/vendors/handlebars.min.js"></script>
+  <script src="js/vanilla.js"></script>
+  <script type="text/x-handlebars-template">
+    {{> partials/htmlHead }}
+  </script>
+
+</head>
+
+<body onload="render()">
+<div>
+  <script type="text/x-handlebars-template">
+    {{> partials/header details='active'}}
+    </script>
+</div>
+
+<div>
+  <script type="text/x-handlebars-template">
+    {{> partials/hero title='Details' }}
+    </script>
+</div>
+
+<section class="single-product padding-small">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="d-flex gap-3 product-preview">
+          <div class="swiper thumb-swiper w-50">
+            <div class="swiper-wrapper d-flex flex-wrap gap-3 align-content-start">
+              <div class="swiper-slide bg-white">
+                <img src="images/product-thumbnail-1.png" alt="product-thumb" class="img-fluid border rounded-3">
+              </div>
+              <div class="swiper-slide bg-white">
+                <img src="images/product-thumbnail-2.png" alt="product-thumb" class="img-fluid border rounded-3">
+              </div>
+              <div class="swiper-slide bg-white">
+                <img src="images/product-thumbnail-3.png" alt="product-thumb" class="img-fluid border rounded-3">
+              </div>
+            </div>
+          </div>
+          <div class="swiper large-swiper border rounded-3 overflow-hidden">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide bg-white">
+                <img src="images/product-large-1.png" alt="single-product" class="img-fluid">
+              </div>
+              <div class="swiper-slide bg-white">
+                <img src="images/product-large-2.png" alt="single-product" class="img-fluid">
+              </div>
+              <div class="swiper-slide bg-white">
+                <img src="images/product-large-3.png" alt="single-product" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="product-info ps-lg-5 pt-3 pt-lg-0">
+          <div class="element-header">
+            <h1 class="product-title">The Emerald Crown</h1>
+            <div class="product-price d-flex align-items-center mt-2">
+              <span class="fs-2 fw-light text-primary me-2">$200</span>
+              <del>$260</del>
+            </div>
+          </div>
+          <p>Justo, cum feugiat imperdiet nulla molestie ac vulputate scelerisque amet. Bibendum adipiscing platea blandit sit sed quam semper rhoncus.</p>
+          <hr>
+          <div class="cart-wrap">
+            <div class="color-options product-select my-3">
+              <div class="color-toggle" data-option-index="0">
+                <h4 class="item-title text-decoration-underline text-capitalize">Color</h4>
+                <ul class="select-list list-unstyled d-flex mb-0">
+                  <li class="select-item me-3" data-val="Green" title="Green">
+                    <a href="#">Gray</a>
+                  </li>
+                  <li class="select-item me-3" data-val="Orange" title="Orange">
+                    <a href="#">Blue</a>
+                  </li>
+                  <li class="select-item me-3" data-val="Red" title="Red">
+                    <a href="#">White</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="swatch product-select" data-option-index="1">
+              <h4 class="item-title text-decoration-underline text-capitalize">Size</h4>
+              <ul class="select-list list-unstyled d-flex mb-0">
+                <li data-value="S" class="select-item me-3">
+                  <a href="#">S</a>
+                </li>
+                <li data-value="M" class="select-item me-3">
+                  <a href="#">M</a>
+                </li>
+                <li data-value="L" class="select-item me-3">
+                  <a href="#">L</a>
+                </li>
+              </ul>
+            </div>
+            <div class="product-quantity my-3">
+              <div class="item-title">
+                <l>2 in stock</l>
+              </div>
+              <div class="stock-button-wrap mt-2 d-flex flex-wrap align-items-center">
+                <div class="product-quantity">
+                  <div class="input-group product-qty align-items-center" style="max-width: 150px;">
+                        <span class="input-group-btn">
+                          <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-left-minus" data-type="minus" data-field="">
+                            <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                          </button>
+                        </span>
+                    <input type="text" id="quantity" name="quantity" class="form-control bg-white shadow border rounded-3 py-2 mx-2 input-number text-center" value="1" min="1" max="100" required>
+                    <span class="input-group-btn">
+                          <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-right-plus" data-type="plus" data-field="">
+                            <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                          </button>
+                        </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons my-3 d-flex flex-wrap gap-3">
+              <a href="#" class="btn">Add to cart</a>
+            </div>
+          </div>
+          <hr>
+          <div class="meta-product my-3">
+            <div class="meta-item d-flex mb-1">
+              <span class="fw-medium me-2">SKU:</span>
+              <ul class="select-list list-unstyled d-flex mb-0">
+                <li data-value="S" class="select-item">1223</li>
+              </ul>
+            </div>
+            <div class="meta-item d-flex mb-1">
+              <span class="fw-medium me-2">Category:</span>
+              <ul class="select-list list-unstyled d-flex mb-0">
+                <li data-value="S" class="select-item">
+                  <a href="#">Romance</a>,
+                </li>
+                <li data-value="S" class="select-item">
+                  <a href="#">Sci-Fi</a>,
+                </li>
+                <li data-value="S" class="select-item">
+                  <a href="#">Fiction</a>
+                </li>
+              </ul>
+            </div>
+            <div class="meta-item d-flex mb-1">
+              <span class="fw-medium me-2">Tags:</span>
+              <ul class="select-list list-unstyled d-flex mb-0">
+                <li data-value="S" class="select-item">
+                  <a href="#">Revenge</a>,
+                </li>
+                <li data-value="S" class="select-item">
+                  <a href="#">Vampire</a>,
+                </li>
+                <li data-value="S" class="select-item">
+                  <a href="#">Life</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div>
+  <script type="text/x-handlebars-template">
+    {{> partials/footer }}
+  </script>
+</div>
+
+<script src="js/vendors/jquery-1.11.0.min.js"></script>
+<script src="js/vendors/bootstrap.bundle.min.js"></script>
+<script src="js/vendors/swiper-bundle.min.js"></script>
+<script src="js/vendors/script.js"></script>
+</body>
+</html>
