@@ -2,19 +2,22 @@ function paginate(books) {
   const params = new URLSearchParams(location.search)
   const currentPage = parseInt(params.get('page')) || 1
   const currentSorting = params.get('sort')
+  const currentGenre = params.get('genre')
 
-  const totalBooks = books.length
+  const filteredBooks = handleGenres(books, currentGenre)
+  const totalBooks = filteredBooks.length
   const size = 15
 
   const pageCount = Math.ceil(totalBooks / size)
   const pages = createPagingModel(pageCount, currentPage, currentSorting)
 
   let from = (currentPage - 1) * size
-  const to = from + size
+  const to = Math.min(from + size, totalBooks)
 
-  const sortedBooks = handleSorting(books, currentSorting)
+  const sortedBooks = handleSorting(filteredBooks, currentSorting)
 
   render({
+    genres: createGenreModel(currentGenre),
     sorting: createSortingModel(currentSorting),
     sort: currentSorting,
 
@@ -27,7 +30,7 @@ function paginate(books) {
     currentPage: currentPage,
     pages: pages,
     prevPage: Math.max(currentPage - 1, 1),
-    nextPage: Math.min(currentPage + 1, pageCount)
+    nextPage: Math.min(currentPage + 1, pageCount),
   })
 }
 
@@ -103,3 +106,43 @@ function triggerSorting(element) {
   searchParams.set('page', "1")
   location.search = searchParams.toString()
 }
+
+const GENRES = {
+  comic: "Comics",
+  computer_science: "Computer Science",
+  data_science: "Data Science",
+  economics: "Economics",
+  fiction: "Fiction",
+  history: "History",
+  mathematics: "Mathematics",
+  nonfiction: "Non-fiction",
+  philosophy: "Philosophy",
+  psychology: "Psychology",
+  science: "Science",
+  signal_processing: "Signal Processing"
+}
+
+function createGenreModel(currentGenre) {
+  const genres = []
+  for (const [key, value] of Object.entries(GENRES)) {
+    const entry = {
+      value: key,
+      active: key === currentGenre? 'active' : '',
+      title: value,
+    }
+    genres.push(entry)
+  }
+  return genres
+}
+
+function handleGenres(books, currentGenre) {
+  if (currentGenre) {
+    const filteredBooks = books.filter(function(book) {
+      return book.genre === currentGenre
+    })
+    return filteredBooks
+  }
+  // if genre is empty, return all books
+  return books
+}
+

@@ -33,10 +33,11 @@
 </div>
 
 <div class="shopify-grid padding-small">
-  <div class="container">
-    <div class="row flex-row g-md-5">
-      <main class="col-md-12">
-        <script type="text/x-handlebars-template">
+  <div class="container-lg">
+    <div class="row flex-row-reverse">
+
+      <script type="text/x-handlebars-template">
+      <main class="col-md-9">
         <div class="filter-shop d-flex flex-wrap justify-content-between mb-5">
           <div class="showing-product">
             <p>Showing {{from}}–{{to}} of {{totalBooks}} results</p>
@@ -50,7 +51,7 @@
           </div>
         </div>
 
-        <div class="product-content product-store row row-cols-lg-5 row-cols-md-4 row-cols-sm-2 row-cols-1">
+        <div class="product-content product-store row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1">
         {{#books}}
           <div class="col mb-4">
             <div class="card position-relative p-4 border rounded-3">
@@ -90,8 +91,27 @@
             </li>
           </ul>
         </nav>
-        </script>
       </main>
+
+      <aside class="col-md-3">
+        <div class="sidebar ps-lg-5">
+          <div class="widget-menu">
+            <div class="widget-search-bar">
+              <form class="d-flex border rounded-3 p-2" role="search">
+                <input class="form-control border-0 me-2 py-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn rounded-3 p-3 d-flex align-items-center" type="submit">
+                  <svg class="search text-light" width="18" height="18">
+                    <use xlink:href="#search"></use>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+          {{> partials/genres }}
+        </div>
+      </aside>
+      </script>
+
     </div>
   </div>
 </div>
@@ -105,6 +125,6 @@
 <script src="js/vendors/jquery-1.11.0.min.js"></script>
 <script src="js/vendors/bootstrap.bundle.min.js"></script>
 <script src="js/vendors/swiper-bundle.min.js"></script>
-<script src="js/vendors/script.js"></script>
+<script src="js/vendors/script.js" defer></script>
 </body>
 </html>
