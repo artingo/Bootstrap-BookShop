@@ -222,7 +222,7 @@ const data = {
       "author": "Dalrymple, William",
       "genre": "history",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -231,7 +231,7 @@ const data = {
       "author": "Villani, Cedric",
       "genre": "mathematics",
       "publisher": "Bodley Head",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -240,7 +240,7 @@ const data = {
       "author": "Tharoor, Shashi",
       "genre": "nonfiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -249,7 +249,7 @@ const data = {
       "author": "Grisham, John",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -258,7 +258,7 @@ const data = {
       "author": "Sagan, Carl",
       "genre": "science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -267,7 +267,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -276,7 +276,7 @@ const data = {
       "author": "Gardner, Earle Stanley",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -285,7 +285,7 @@ const data = {
       "author": "Heller, Joseph",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -294,7 +294,7 @@ const data = {
       "author": "Raymond, Eric",
       "genre": "computer_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -303,7 +303,7 @@ const data = {
       "author": "Deshpande, P L",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -312,7 +312,7 @@ const data = {
       "author": "Dickens, Charles",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -321,7 +321,7 @@ const data = {
       "author": "Dalrymple, William",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -330,7 +330,7 @@ const data = {
       "author": "Lapierre, Dominique",
       "genre": "fiction",
       "publisher": "vikas",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -339,7 +339,7 @@ const data = {
       "author": "Huntington, Samuel",
       "genre": "history",
       "publisher": "Simon&Schuster",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -348,7 +348,7 @@ const data = {
       "author": "Singh, Simon",
       "genre": "science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -357,7 +357,7 @@ const data = {
       "author": "BBC",
       "genre": "nonfiction",
       "publisher": "BBC",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -366,7 +366,7 @@ const data = {
       "author": "Doyle, Arthur Conan",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -375,7 +375,7 @@ const data = {
       "author": "Doyle, Arthur Conan",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -384,7 +384,7 @@ const data = {
       "author": "Forsyth, David",
       "genre": "data_science",
       "publisher": "Pearson",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -393,7 +393,7 @@ const data = {
       "author": "Sorabjee",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -402,7 +402,7 @@ const data = {
       "author": "Dostoevsky, Fyodor",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -411,7 +411,7 @@ const data = {
       "author": "Wolfman, Marv",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -420,7 +420,7 @@ const data = {
       "author": "Janert, Phillip",
       "genre": "data_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -429,7 +429,7 @@ const data = {
       "author": "Nisbet, Robert",
       "genre": "data_science",
       "publisher": "Apress",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -438,7 +438,7 @@ const data = {
       "author": "Sebastian Gutierrez",
       "genre": "data_science",
       "publisher": "Apress",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -447,7 +447,7 @@ const data = {
       "author": "Foreman, John",
       "genre": "data_science",
       "publisher": "Wiley",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -456,7 +456,7 @@ const data = {
       "author": "Tanenbaum, Andrew",
       "genre": "computer_science",
       "publisher": "Prentice Hall",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -465,7 +465,7 @@ const data = {
       "author": "Jurgens, Dan",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -474,7 +474,7 @@ const data = {
       "author": "Forsyth, Frederick",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -483,7 +483,7 @@ const data = {
       "author": "Franco, Sergio",
       "genre": "computer_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -492,7 +492,7 @@ const data = {
       "author": "West, Morris",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -501,7 +501,7 @@ const data = {
       "author": "Nehru, Jawaharlal",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -510,7 +510,7 @@ const data = {
       "author": "Gordon, Richard",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -519,7 +519,7 @@ const data = {
       "author": "Gordon, Richard",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -528,7 +528,7 @@ const data = {
       "author": "Zaidi, Hussain",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -537,7 +537,7 @@ const data = {
       "author": "Orwell, George",
       "genre": "nonfiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -546,7 +546,7 @@ const data = {
       "author": "Mlodinow, Leonard",
       "genre": "science",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -555,7 +555,7 @@ const data = {
       "author": "Dylan, Bob",
       "genre": "nonfiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -564,7 +564,7 @@ const data = {
       "author": "Greene, W. H.",
       "genre": "economics",
       "publisher": "Pearson",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -573,7 +573,7 @@ const data = {
       "author": "Bodanis, David",
       "genre": "science",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -582,7 +582,7 @@ const data = {
       "author": "Thomas, Joy",
       "genre": "data_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -591,7 +591,7 @@ const data = {
       "author": "Rutherford, Alex",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -600,7 +600,7 @@ const data = {
       "author": "Rutherford, Alex",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -609,7 +609,7 @@ const data = {
       "author": "Rutherford, Alex",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -618,7 +618,7 @@ const data = {
       "author": "Rutherford, Alex",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -627,7 +627,7 @@ const data = {
       "author": "Rutherford, Alex",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -636,7 +636,7 @@ const data = {
       "author": "Huxley, Aldous",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -645,7 +645,7 @@ const data = {
       "author": "Archer, Jeffery",
       "genre": "fiction",
       "publisher": "Pan",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -654,7 +654,7 @@ const data = {
       "author": "Hemingway, Ernest",
       "genre": "fiction",
       "publisher": "Rupa",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -663,7 +663,7 @@ const data = {
       "author": "Morrison, Grant",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -672,7 +672,7 @@ const data = {
       "author": "Johns, Geoff",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -681,7 +681,7 @@ const data = {
       "author": "Ackroyd, Peter",
       "genre": "history",
       "publisher": "Pan",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -690,7 +690,7 @@ const data = {
       "author": "Dubner, Stephen",
       "genre": "economics",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -699,7 +699,7 @@ const data = {
       "author": "Harris, Sam",
       "genre": "philosophy",
       "publisher": "FreePress",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -708,7 +708,7 @@ const data = {
       "author": "Lapierre, Dominique",
       "genre": "history",
       "publisher": "vikas",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -717,7 +717,7 @@ const data = {
       "author": "Friedman, Thomas",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -726,7 +726,7 @@ const data = {
       "author": "Goswami, Jaideva",
       "genre": "signal_processing",
       "publisher": "Wiley",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -735,7 +735,7 @@ const data = {
       "author": "Larsson, Steig",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -744,7 +744,7 @@ const data = {
       "author": "Larsson, Steig",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -753,7 +753,7 @@ const data = {
       "author": "Larsson, Steig",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -762,7 +762,7 @@ const data = {
       "author": "Hawking, Stephen",
       "genre": "mathematics",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -771,7 +771,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -780,7 +780,7 @@ const data = {
       "author": "Tharoor, Shashi",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -789,7 +789,7 @@ const data = {
       "author": "Fisk, Robert",
       "genre": "history",
       "publisher": "HarperCollins",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -798,7 +798,7 @@ const data = {
       "author": "Deshpande, P L",
       "genre": "nonfiction",
       "publisher": "Mauj",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -807,7 +807,7 @@ const data = {
       "author": "Deshpande P L",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -816,7 +816,7 @@ const data = {
       "author": "Naipaul, V S",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -825,7 +825,7 @@ const data = {
       "author": "Capra, Fritjof",
       "genre": "science",
       "publisher": "HarperCollins",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -834,7 +834,7 @@ const data = {
       "author": "Wolfman, Marv",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -843,7 +843,7 @@ const data = {
       "author": "Russell, Bertrand",
       "genre": "philosophy",
       "publisher": "Routledge",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -852,7 +852,7 @@ const data = {
       "author": "Konnikova, Maria",
       "genre": "psychology",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -861,7 +861,7 @@ const data = {
       "author": "Hugo, Victor",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -870,7 +870,7 @@ const data = {
       "author": "Sen, Amartya",
       "genre": "nonfiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -879,7 +879,7 @@ const data = {
       "author": "Sen, Amartya",
       "genre": "philosophy",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -888,7 +888,7 @@ const data = {
       "author": "Dostoevsky, Fyodor",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -897,7 +897,7 @@ const data = {
       "author": "Shih, Frank",
       "genre": "signal_processing",
       "publisher": "CRC",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -906,7 +906,7 @@ const data = {
       "author": "Eddins, Steve",
       "genre": "signal_processing",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -915,7 +915,7 @@ const data = {
       "author": "Naipaul, V. S.",
       "genre": "fiction",
       "publisher": "Rupa",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -924,7 +924,7 @@ const data = {
       "author": "Tharoor, Shashi",
       "genre": "history",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -933,7 +933,7 @@ const data = {
       "author": "Nariman",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -942,7 +942,7 @@ const data = {
       "author": "Gleick, James",
       "genre": "science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -951,7 +951,7 @@ const data = {
       "author": "Menon, V P",
       "genre": "history",
       "publisher": "Orient Blackswan",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -960,7 +960,7 @@ const data = {
       "author": "Cormen, Thomas",
       "genre": "computer_science",
       "publisher": "MIT Press",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -969,7 +969,7 @@ const data = {
       "author": "Corbett, Jim",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -978,7 +978,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -987,7 +987,7 @@ const data = {
       "author": "Caroll, Ryder",
       "genre": "economics",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -996,7 +996,7 @@ const data = {
       "author": "",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1005,7 +1005,7 @@ const data = {
       "author": "Crichton, Michael",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1014,7 +1014,7 @@ const data = {
       "author": "",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1023,7 +1023,7 @@ const data = {
       "author": "",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1032,7 +1032,7 @@ const data = {
       "author": "Ranjan, Sudhanshu",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1041,7 +1041,7 @@ const data = {
       "author": "",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1050,7 +1050,7 @@ const data = {
       "author": "",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1059,7 +1059,7 @@ const data = {
       "author": "Pausch, Randy",
       "genre": "nonfiction",
       "publisher": "Hyperion",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1068,7 +1068,7 @@ const data = {
       "author": "Dalrymple, William",
       "genre": "history",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1077,7 +1077,7 @@ const data = {
       "author": "Bradsky, Gary",
       "genre": "data_science",
       "publisher": "O'Reilly",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1086,7 +1086,7 @@ const data = {
       "author": "Kanetkar, Yashwant",
       "genre": "computer_science",
       "publisher": "Prentice Hall",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1095,7 +1095,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1104,7 +1104,7 @@ const data = {
       "author": "Conway, Drew",
       "genre": "data_science",
       "publisher": "O'Reilly",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1113,7 +1113,7 @@ const data = {
       "author": "Oram, Andy",
       "genre": "computer_science",
       "publisher": "O'Reilly",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1122,7 +1122,7 @@ const data = {
       "author": "Kale, V P",
       "genre": "nonfiction",
       "publisher": "Mauj",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1131,7 +1131,7 @@ const data = {
       "author": "Garg, Sanjay",
       "genre": "fiction",
       "publisher": "Mauj",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1140,7 +1140,7 @@ const data = {
       "author": "Maugham, William S",
       "genre": "fiction",
       "publisher": "Vintage",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1149,7 +1149,7 @@ const data = {
       "author": "Hitler, Adolf",
       "genre": "nonfiction",
       "publisher": "Rupa",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1158,7 +1158,7 @@ const data = {
       "author": "Bell, E T",
       "genre": "mathematics",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1167,7 +1167,7 @@ const data = {
       "author": "Maugham, William S",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1176,7 +1176,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1185,7 +1185,7 @@ const data = {
       "author": "Sassoon, Jean",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1194,7 +1194,7 @@ const data = {
       "author": "Baz-Zohar, Michael",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1203,7 +1203,7 @@ const data = {
       "author": "",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1212,7 +1212,7 @@ const data = {
       "author": "Vapnik, Vladimir",
       "genre": "data_science",
       "publisher": "Springer",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1221,7 +1221,7 @@ const data = {
       "author": "Haykin, Simon",
       "genre": "data_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1230,7 +1230,7 @@ const data = {
       "author": "Wells, H. G.",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1239,7 +1239,7 @@ const data = {
       "author": "Drucker, Peter",
       "genre": "economics",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1248,7 +1248,7 @@ const data = {
       "author": "Devlin, Keith",
       "genre": "science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1257,7 +1257,7 @@ const data = {
       "author": "Lapierre, Dominique",
       "genre": "history",
       "publisher": "vikas",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1266,7 +1266,7 @@ const data = {
       "author": "Russell, Bertrand",
       "genre": "philosophy",
       "publisher": "Routledge",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1275,7 +1275,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "nonfiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1284,7 +1284,7 @@ const data = {
       "author": "Bach, Richard",
       "genre": "nonfiction",
       "publisher": "Dell",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1293,7 +1293,7 @@ const data = {
       "author": "Said, Edward",
       "genre": "history",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1302,7 +1302,7 @@ const data = {
       "author": "Camus, Albert",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1311,7 +1311,7 @@ const data = {
       "author": "Dawkins, Richard",
       "genre": "science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1320,7 +1320,7 @@ const data = {
       "author": "Duda, Hart",
       "genre": "data_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1329,7 +1329,7 @@ const data = {
       "author": "Forsyth, Frederick",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1338,7 +1338,7 @@ const data = {
       "author": "Rand, Ayn",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1347,7 +1347,7 @@ const data = {
       "author": "Heisenberg, Werner",
       "genre": "science",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1356,7 +1356,7 @@ const data = {
       "author": "Follett, Ken",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1365,7 +1365,7 @@ const data = {
       "author": "Kanetkar, Yashwant",
       "genre": "computer_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1374,7 +1374,7 @@ const data = {
       "author": "",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1383,7 +1383,7 @@ const data = {
       "author": "Mohan, Ned",
       "genre": "computer_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1392,7 +1392,7 @@ const data = {
       "author": "Rashid, Muhammad",
       "genre": "computer_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1401,7 +1401,7 @@ const data = {
       "author": "Machiavelli",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1410,7 +1410,7 @@ const data = {
       "author": "Taub, Schilling",
       "genre": "computer_science",
       "publisher": "TMH",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1419,7 +1419,7 @@ const data = {
       "author": "Archer, Jeffery",
       "genre": "fiction",
       "publisher": "Pan",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1437,7 +1437,7 @@ const data = {
       "author": "Deshpande, P L",
       "genre": "nonfiction",
       "publisher": "Mauj",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1446,7 +1446,7 @@ const data = {
       "author": "Hansberry, Lorraine",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1455,7 +1455,7 @@ const data = {
       "author": "Sen, Amartya",
       "genre": "economics",
       "publisher": "Springer",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1464,7 +1464,7 @@ const data = {
       "author": "Rand, Ayn",
       "genre": "philosophy",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1473,7 +1473,7 @@ const data = {
       "author": "Dickinson, Peter",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1482,7 +1482,7 @@ const data = {
       "author": "Durrell, Gerald",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1491,7 +1491,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "nonfiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1500,7 +1500,7 @@ const data = {
       "author": "Nayar, Kuldip",
       "genre": "history",
       "publisher": "HarperCollins",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1509,7 +1509,7 @@ const data = {
       "author": "Ghosh, Amitav",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1518,7 +1518,7 @@ const data = {
       "author": "",
       "genre": "fiction",
       "publisher": "Jaico",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1527,7 +1527,7 @@ const data = {
       "author": "Wells, H G",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1536,7 +1536,7 @@ const data = {
       "author": "Silver, Nate",
       "genre": "data_science",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1545,7 +1545,7 @@ const data = {
       "author": "Singh, Simon",
       "genre": "science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1554,7 +1554,7 @@ const data = {
       "author": "Vonnegut, Kurt",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1563,7 +1563,7 @@ const data = {
       "author": "Various",
       "genre": "economics",
       "publisher": "Springer",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1572,7 +1572,7 @@ const data = {
       "author": "Gupta, Madan",
       "genre": "data_science",
       "publisher": "Elsevier",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1581,7 +1581,7 @@ const data = {
       "author": "Pratt, John",
       "genre": "data_science",
       "publisher": "MIT Press",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1590,7 +1590,7 @@ const data = {
       "author": "Vapnik, Vladimir",
       "genre": "data_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1599,7 +1599,7 @@ const data = {
       "author": "Durant, Will",
       "genre": "philosophy",
       "publisher": "Pocket",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1608,7 +1608,7 @@ const data = {
       "author": "Sussman, Gerald",
       "genre": "computer_science",
       "publisher": "MIT Press",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1617,7 +1617,7 @@ const data = {
       "author": "Tao, Terence",
       "genre": "mathematics",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1626,7 +1626,7 @@ const data = {
       "author": "Dubner, Stephen",
       "genre": "economics",
       "publisher": "HarperCollins",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1635,7 +1635,7 @@ const data = {
       "author": "",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1644,7 +1644,7 @@ const data = {
       "author": "",
       "genre": "comic",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1653,7 +1653,7 @@ const data = {
       "author": "Feynman, Richard",
       "genre": "science",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1662,7 +1662,7 @@ const data = {
       "author": "Rowling, J K",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1671,7 +1671,7 @@ const data = {
       "author": "Poe, Edgar Allen",
       "genre": "fiction",
       "publisher": "HarperCollins",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1680,7 +1680,7 @@ const data = {
       "author": "Iacoca, Lee",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1689,7 +1689,7 @@ const data = {
       "author": "Capra, Fritjof",
       "genre": "science",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1698,7 +1698,7 @@ const data = {
       "author": "Stonier, Alfred",
       "genre": "economics",
       "publisher": "Pearson",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1707,7 +1707,7 @@ const data = {
       "author": "Hawking, Stephen",
       "genre": "science",
       "publisher": "Jaico",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1716,7 +1716,7 @@ const data = {
       "author": "Downey, Allen",
       "genre": "data_science",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1725,7 +1725,7 @@ const data = {
       "author": "Braithwaite",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1734,7 +1734,7 @@ const data = {
       "author": "Maugham, William S",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1743,7 +1743,7 @@ const data = {
       "author": "Kafka, Frank",
       "genre": "fiction",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1752,7 +1752,7 @@ const data = {
       "author": "Capra, Fritjof",
       "genre": "nonfiction",
       "publisher": "Fontana",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1761,7 +1761,7 @@ const data = {
       "author": "Russell, Bertrand",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1770,7 +1770,7 @@ const data = {
       "author": "Deshpande P L",
       "genre": "fiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1779,7 +1779,7 @@ const data = {
       "author": "Woodward, Bob",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1788,7 +1788,7 @@ const data = {
       "author": "Forsyth, Frederick",
       "genre": "fiction",
       "publisher": "Transworld",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1797,7 +1797,7 @@ const data = {
       "author": "Deshpande, P L",
       "genre": "nonfiction",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1806,7 +1806,7 @@ const data = {
       "author": "Rand, Ayn",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1815,7 +1815,7 @@ const data = {
       "author": "Palkhivala",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1824,7 +1824,7 @@ const data = {
       "author": "Palkhivala",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1833,7 +1833,7 @@ const data = {
       "author": "Smith, Adam",
       "genre": "economics",
       "publisher": "Random House",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1842,7 +1842,7 @@ const data = {
       "author": "Steinbeck, John",
       "genre": "fiction",
       "publisher": "Penguin",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1851,7 +1851,7 @@ const data = {
       "author": "",
       "genre": "philosophy",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1860,7 +1860,7 @@ const data = {
       "author": "",
       "genre": "fiction",
       "publisher": "Jaico",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1869,7 +1869,7 @@ const data = {
       "author": "",
       "genre": "history",
       "publisher": "",
-      "price": "",
+      "price": 9.97,
       "image": ""
     },
     {
@@ -1878,7 +1878,7 @@ const data = {
       "author": "Pirsig, Robert",
       "genre": "philosophy",
       "publisher": "Vintage",
-      "price": "",
+      "price": 9.97,
       "image": ""
     }
   ]}

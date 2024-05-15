@@ -1,23 +1,24 @@
 function paginate(books) {
   const params = new URLSearchParams(location.search)
   const currentPage = parseInt(params.get('page')) || 1
+  const currentSorting = params.get('sort')
+
   const totalBooks = books.length
   const size = 15
 
   const pageCount = Math.ceil(totalBooks / size)
-  const pages = Array.from({length: pageCount}, function (value, index) {
-    const page = index + 1
-    return {
-      page: page,
-      active: page === currentPage ? 'active' : ''
-    }
-  })
+  const pages = createPagingModel(pageCount, currentPage, currentSorting)
 
   let from = (currentPage - 1) * size
   const to = from + size
 
+  const sortedBooks = handleSorting(books, currentSorting)
+
   render({
-    books: books.slice(from, to),
+    sorting: createSortingModel(currentSorting),
+    sort: currentSorting,
+
+    books: sortedBooks.slice(from, to),
 
     from: ++from,
     to: to,
@@ -28,4 +29,77 @@ function paginate(books) {
     prevPage: Math.max(currentPage - 1, 1),
     nextPage: Math.min(currentPage + 1, pageCount)
   })
+}
+
+function createPagingModel(pageCount, currentPage, currentSorting) {
+  return Array.from({length: pageCount}, function (value, index) {
+    const page = index + 1
+    return {
+      page: page,
+      active: page === currentPage ? 'active' : '',
+      sort: currentSorting
+    }
+  });
+}
+
+const SORTING = {
+  DEFAULT: "Reset Sorting",
+  ALPHA_UP: "Name A-Z",
+  ALPHA_DOWN: "Name Z-A",
+  PRICE_UP: "Price (Low-High)",
+  PRICE_DOWN: "Price (High-Low)",
+  AUTHOR_UP: "Author A-Z",
+  AUTHOR_DOWN: "Author Z-A",
+}
+
+function createSortingModel(currentSorting) {
+  const sorting = []
+  for (const [key, value] of Object.entries(SORTING)) {
+    const entry = {
+      value: key,
+      selected: (key === currentSorting) ? "selected" : "",
+      label: value,
+    }
+    sorting.push(entry)
+  }
+  return sorting
+}
+
+function handleSorting(books, currentSorting) {
+  switch (currentSorting) {
+    case 'DEFAULT':
+    case 'ALPHA_UP':
+      books.sort(function(a, b) {
+        return a.title < b.title ? -1 : a.title > b.title ? 1 : 0
+      })
+      break
+    case 'ALPHA_DOWN':
+      books.sort(function(a, b) {
+        return a.title < b.title ? 1 : a.title > b.title ? -1 : 0
+      })
+      break
+    case 'PRICE_UP':
+      books.sort(function(a, b) { return a.price - b.price })
+      break
+    case 'PRICE_DOWN':
+      books.sort(function(a, b) { return b.price - a.price })
+      break
+    case 'AUTHOR_UP':
+      books.sort(function(a, b) {
+        return a.author < b.author ? -1 : a.author > b.author ? 1 : 0
+      })
+      break
+    case 'AUTHOR_DOWN':
+      books.sort(function(a, b) {
+        return a.author < b.author ? 1 : a.author > b.author ? -1 : 0
+      })
+  }
+  return books
+}
+
+function triggerSorting(element) {
+  const searchParams = new URLSearchParams(location.search)
+  searchParams.set('sort', element.value)
+  searchParams.set('page', "1")
+  location.search = searchParams.toString()
 }

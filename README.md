@@ -5,17 +5,17 @@ It uses [Bootstrap 5](https://getbootstrap.com) pages, [Handlebars](https://hand
 
 This is how the final shop looks like:
 
-![Book Shop Screenshot](images/bookshop.png)<br/>
+![Book Shop Screenshot](images/screenshots/bookshop.png)<br/>
 <br/>
 
 Follow these steps to implement the bookshop:
 ## 1. Create project and folders
 1. In your IDE, create a new Bootstrap project:<br/>
-   ![Bootstrap](images/new-project.png)
+   ![Bootstrap](images/screenshots/new-project.png)
   
 
 1. Wait until all files and folders are created. After that, add a [fonts](fonts) and [images](images) folder:<br/>
-   ![folder structure](images/folder-structure.png)
+   ![folder structure](images/screenshots/folder-structure.png)
 
 ## 2. Add static resources
 1. Search for an adequate theme, download it and copy the files into this project. For instance, I found my E-Commerce shop theme on <a href="https://templatesjungle.com/downloads/category/free-bootstrap-templates/" target="_blank">TemplatesJungle</a>.
@@ -153,7 +153,7 @@ To keep the store flexible, it is important to be able to load the books from ou
    </head>
    ```   
 3. Load the index page in the browser, open a JavaScript console by pressing CTRL + SHIFT + J (Windows / Linux) or COMMAND + OPTION + J (macOS). Type this command in the console to check the proper data loading: `console.log(data)`. It should prompt the books as seen on this screenshot:<br/>
-   ![JavaScript console](images/javascript-console.png)
+   ![JavaScript console](images/screenshots/javascript-console.png)
 
 ### Display books on overview page
 1. Now it is time to display the books' data on the index page. Iterate over the books with `#each books`. 
@@ -183,7 +183,7 @@ To keep the store flexible, it is important to be able to load the books from ou
    </div>
    ```   
 5. The shop should now display all your books, like in the screenshot:<br/>
-   ![Shop with data](images/shop-with-data.png)
+   ![Shop with data](images/screenshots/shop-with-data.png)
 
 
 ### Enable pagination
@@ -256,5 +256,79 @@ Now, we can see all 209 books from the [data](js/data.js) file but these are too
    </nav>
    ```
 9. The result should look like this:<br/>
-   ![Pagination screenshot](images/pagination.png)
+   ![Pagination screenshot](images/screenshots/pagination.png)
 10. Test the proper pagination by clicking the links!
+
+### Enable sorting
+Next, we want to be able to sort the books by title, price, etc. On the home page, there is a dropdown list that we want to populate and activate. The best way is to keep it in the JavaScript model. Thus, we can add more sorting in the future.
+1. In the [index.js](js/index.js) file, create an object to contain keys and labels of the sorting:
+   ```javascript
+   const SORTING = {
+      DEFAULT:    "Reset Sorting",
+      ALPHA_UP:   "Name A-Z",
+      ALPHA_DOWN: "Name Z-A",
+      PRICE_UP:   "Price (Low-High)",
+      PRICE_DOWN: "Price (High-Low)"
+   }
+   ```
+2. Implement a method to create the model of the dropdown list. We need an array of objects containing `value, selected and label`.
+   ```javascript
+   function createSortingModel(currentSorting) {
+     const sorting = []
+     for (const [key, value] of Object.entries(SORTING)) {
+       const entry = {
+         value: key,
+         selected: (key === currentSorting) ? "selected" : "",
+         label: value,
+       }
+       sorting.push(entry)
+     }
+     return sorting
+   }
+   ```
+3. Now, we can populate the `<option>` array of the sorting dropdown in the [index.html](index.html) file.
+   ```handlebars
+   <select id="sorting" class="form-select" onchange="triggerSorting(this)">
+     {{#sorting}}
+       <option value="{{value}}" {{selected}}>{{label}}</option>
+     {{/sorting}}
+   </select>
+   ```
+   It should look like this, now:<br/>
+   ![sorting-dropdown.png](images/screenshots/sorting-dropdown.png)
+
+4. Next, we want to implement the JavaScript function that triggers the sorting, once we change the selection in the dropdown list. For that, we pass the dropdown reference and append its value to the URL.
+   ```javascript
+   function triggerSorting(element) {
+     const searchParams = new URLSearchParams(location.search)
+     searchParams.set('sort', element.value)
+     searchParams.set('page', "1")
+     location.search = searchParams.toString()
+   }
+   ```
+5. The last step is to actually sort the books array. In JavaScript, you can sort an array by passing a sorting function with parameters `a and b`. Inside, you compare these neighboring array elements and return `1`, `0` or `-1`. This moves the second element up, same place or down in  the list.
+   ```javascript
+   function handleSorting(books, currentSorting) {
+     switch (currentSorting) {
+       case "DEFAULT":
+       case "ALPHA_UP":
+         books.sort(function(a, b) {
+           return a.title < b.title ? -1 : a.title > b.title ? 1 : 0
+         })
+         break
+       case "ALPHA_DOWN":
+         books.sort(function(a, b) {
+           return a.title < b.title ? 1 : a.title > b.title ? -1 : 0
+         })
+         break
+       case "PRICE_UP":
+         books.sort(function(a, b) { return a.price - b.price })
+         break
+       case "PRICE_DOWN":
+         books.sort(function(a, b) { return b.price - a.price })
+      }
+      return books
+   }
+   ```
+6. Test the sorting in the browser. For instance, if you sort by price (descending), the result should look like this:<br/>
+   ![sorted-by-price.png](images/screenshots/sorted-by-price.png)
