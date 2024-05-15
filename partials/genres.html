@@ -1,0 +1,15 @@
+<div class="widget-product-categories pt-5">
+  <div class="section-title overflow-hidden mb-2">
+    <h3 class="d-flex flex-column mb-0">Genres</h3>
+  </div>
+  <ul class="product-categories mb-0 sidebar-list list-unstyled">
+    <li class="cat-list">
+      <a href="index.html">All</a>
+    </li>
+    {{#genres}}
+    <li class="cat-list-item {{active}}">
+      <a href="?genre={{value}}" title="{{title}}">{{title}}</a>
+    </li>
+    {{/genres}}
+  </ul>
+</div>

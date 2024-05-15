@@ -3,7 +3,6 @@
  * @param query - CSS selector as a string
  * @returns {HTMLElement} - the 1st element found
  */
-const $ = query => document.querySelector(query)
 const $$ = query => Array.from(document.querySelectorAll(query))
 
 /**

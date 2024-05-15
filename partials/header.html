@@ -124,29 +124,12 @@
 		</form>
 
 		<h5 class="cat-list-title">Browse Categories</h5>
-
 		<ul class="cat-list">
-			<li class="cat-list-item">
-				<a href="#" title="Romance">Romance</a>
+			{{#genres}}
+			<li class="cat-list-item {{active}}">
+				<a href="?genre={{value}}" title="{{title}}">{{title}}</a>
 			</li>
-			<li class="cat-list-item">
-				<a href="#" title="Thriller">Thriller</a>
-			</li>
-			<li class="cat-list-item">
-				<a href="#" title="Sci-fi">Sci-fi</a>
-			</li>
-			<li class="cat-list-item">
-				<a href="#" title="Cooking">Cooking</a>
-			</li>
-			<li class="cat-list-item">
-				<a href="#" title="Health">Health</a>
-			</li>
-			<li class="cat-list-item">
-				<a href="#" title="Lifestyle">Lifestyle</a>
-			</li>
-			<li class="cat-list-item">
-				<a href="#" title="Fiction">Fiction</a>
-			</li>
+			{{/genres}}
 		</ul>
 
 	</div>
@@ -214,7 +197,7 @@
 										<span class="text-primary">Your cart</span>
 										<span class="badge bg-primary rounded-pill">2</span>
 									</h4>
-									<ul class="list-group mb-3">
+									<ul class	="list-group mb-3">
 										<li class="list-group-item bg-transparent d-flex justify-content-between lh-sm">
 											<div>
 												<h5>

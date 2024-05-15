@@ -98,9 +98,11 @@
   }
 
   $(document).ready(function () {
-    searchPopup();
-    initProductQty();
-    countdownTimer();
+    setTimeout(function() {
+      searchPopup();
+      initProductQty();
+      countdownTimer();
+    }, 100)
 
     /* Video */
     var $videoSrc;

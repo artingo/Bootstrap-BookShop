@@ -102,6 +102,7 @@ Follow these steps to implement the bookshop:
      </script>
    </div>
    ```
+
 ### Replace the footer
 1. Repeat steps 1 to 4 for the `<footer>` section.
    ```handlebars
@@ -184,7 +185,6 @@ To keep the store flexible, it is important to be able to load the books from ou
    ```   
 5. The shop should now display all your books, like in the screenshot:<br/>
    ![Shop with data](images/screenshots/shop-with-data.png)
-
 
 ### Enable pagination
 Now, we can see all 209 books from the [data](js/data.js) file but these are too many entries at once. To handle this, we introduce a `pagination`, i.e. show only 15 books at once and offer a navigation to the next / previous page. 
@@ -332,3 +332,95 @@ Next, we want to be able to sort the books by title, price, etc. On the home pag
    ```
 6. Test the sorting in the browser. For instance, if you sort by price (descending), the result should look like this:<br/>
    ![sorted-by-price.png](images/screenshots/sorted-by-price.png)
+
+### Enable genres
+When you have a lot of books, it makes sense to filter them by 'genres'. It works in a similar way to sorting:
+* create the model for the HTML links
+* react to search parameters
+* handle the current genre in the books model
+
+1. In the [index.js](js/index.js) file, create an object to contain keys and titles of the genres:
+   ```javascript
+   const GENRES = {
+     comic: "Comics",
+     computer_science: "Computer Science",
+     ...
+     signal_processing: "Signal Processing"
+   }
+   ```
+   
+2. Implement a method to create the model of the genres list. We need an array of objects containing `value, active and title`.
+   ```javascript
+   function createGenreModel(currentGenre) {
+      const genres = []
+      for (const [key, value] of Object.entries(GENRES)) {
+        const entry = {
+          value: key,
+          active: key === currentGenre? 'active' : '',
+          title: value,
+        }
+      genres.push(entry)
+      }
+      return genres
+   }
+   ```
+   
+3. Now, we can populate the genres in the [genres.html](partials/genres.html) file.
+   ```handlebars
+   <ul class="product-categories mb-0 sidebar-list list-unstyled">
+     {{#genres}}
+     <li class="cat-item {{active}}">
+       <a href="?genre={{value}}" title="{{title}}">{{title}}</a>
+     </li>
+     {{/genres}}
+   </ul>
+   ```
+   It should look like this, now:<br/>
+   ![genres.png](images/screenshots/genres.png)
+
+4. If you want, you can also generate the genres in the search pop-up, dynamically. To do so, insert this code in the `search-popup` section of [header.html](partials/header.html):
+   ```handlebars
+   <h5 class="cat-list-title">Browse Categories</h5>
+   <ul class="cat-list">
+      {{#genres}}
+      <li class="cat-list-item {{active}}">
+          <a href="?genre={{value}}" title="{{title}}">{{title}}</a>
+      </li>
+      {{/genres}}
+   </ul>
+   ```
+   The result should look like this:<br/>
+   ![search-genres.png](images/screenshots/search-genres.png)
+
+5. As the current genre is now passed as a search parameter, we can react to it.
+   ```javascript
+   function paginate(books) {
+     ...
+     const currentGenre = params.get('genre')
+     const filteredBooks = handleGenres(books)
+     const totalBooks = filteredBooks.length
+     ...
+     render({
+       genres: createGenreModel(currentGenre)
+       ...
+     }
+   }
+   ```
+6. The last step is to actually filter the books array. In JavaScript, you can filter an array by passing a function that decides whether an entry should be returned or not. 
+   ```javascript
+   function handleGenres(books, currentGenre) {
+     if (currentGenre) {
+       const filteredBooks = books.filter(function(book) {
+         return book.genre === currentGenre
+       })
+       return filteredBooks
+     } 
+     // if genre is empty, return all books
+     return books
+   }
+   ```
+   
+7. Test the genre filtering in the browser. For instance, if you click on ``, the result should look like this:<br/>
+   ![genre-history.png](images/screenshots/genre-history.png)
+
+
