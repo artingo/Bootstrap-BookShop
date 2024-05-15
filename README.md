@@ -1,10 +1,9 @@
 # Bootstrap Course
 
 This project is meant to teach Bootstrap fundamentals by creating a bookshop, step by step. <br/>
-It uses [Bootstrap 5](https://getbootstrap.com) pages, [Handlebars](https://handlebarsjs.com/guide/) templating, some [JavaScript](https://www.w3schools.com/js/) and the [Bookly](https://templatesjungle.com/downloads/bookly-bookstore-ecommerce-bootstrap-website-template/) E-Commerce theme, and it stores its data in the browser's LocalStorage.
+It uses [Bootstrap 5](https://getbootstrap.com) pages, [Handlebars](https://handlebarsjs.com/guide/) templating, some [JavaScript](https://www.w3schools.com/js/) and the [Bookly](https://templatesjungle.com/downloads/bookly-bookstore-ecommerce-bootstrap-website-template/) E-Commerce theme, and it stores its data in the browser's LocalStorage. Please try the live-demo on: https://artingo.github.io/Bootstrap-BookShop/
 
 This is how the final shop looks like:
-
 ![Book Shop Screenshot](images/screenshots/bookshop.png)<br/>
 <br/>
 
@@ -422,5 +421,81 @@ When you have a lot of books, it makes sense to filter them by 'genres'. It work
    
 7. Test the genre filtering in the browser. For instance, if you click on `history`, the result should look like this:<br/>
    ![genre-history.png](images/screenshots/genre-history.png)
-
-
+   
+### Enable search functionality
+Finally, we want to be able to search for books by title and author.
+1. We want to trigger the search from the big search field above the genres.<br/>
+   ![search field](images/screenshots/search-field.png)
+   ```html
+   <form name="aside-search" onsubmit="return triggerSearch(this.search.value)">
+      <input type="search" name="search">
+      <button type="submit">
+        <svg><use xlink:href="#search"></use></svg>
+      </button>
+   </form>
+   ```
+   
+2. Let's implement that JavaScript function that adds the `searchTerm` to the URL parameters.
+   ```javascript
+   function triggerSearch(searchTerm) {
+      if (searchTerm) {
+         const searchParams = new URLSearchParams(location.search)
+         searchParams.set('search', searchTerm)
+         location.search = searchParams.toString()
+      }
+      return false
+   }
+   ```
+   
+3. In `paginate()` we pass the `searchTerm` to the `handleGenres()` function.
+   ```javascript
+   function paginate(books) {
+     ...
+     const searchTerm = params.get('search')
+     const filteredBooks = handleGenres(books, currentGenre, searchTerm)
+     ...
+     render({
+       search: searchTerm,
+       ...
+     }
+   }
+   ```
+   
+4. In `handleGenres()`, after filtering the genre, we additionally filter the books by the `searchTerm`. For the comparison itself, we use `includes()` because it also finds partial String matches. And to receive more results, we transform title and author to lower case.
+   ```javascript
+   function handleGenres(books, currentGenre, searchTerm) {
+     ...
+     if (searchTerm) {
+       const searchTermLower = searchTerm.toLowerCase()
+       filteredBooks = filteredBooks.filter(function(book) {
+         return book.title.toLowerCase().includes(searchTermLower)
+           || book.author.toLowerCase().includes(searchTermLower)
+       })
+     }
+   }
+   ```
+   
+5. To re-use the `searchTerm`, we pass it to Handlebars, so it gets displayed in the search field after page reload.
+   ```handlebars
+   <input type="search" name="search" value="{{search}}">
+   ```
+   
+6. You may want to add the search functionality to the search pop-up in [header.html](), as well. 
+   ```handlebars
+   <form name="header-search" onsubmit="return triggerSearch(this.search.value)">
+      <input type="search" name="search">
+      <button type="submit">
+        <svg><use xlink:href="#search"></use></svg>
+      </button>
+   </form>
+   ```
+   
+7. To maintain all the URL parameters, you should refactor your [pagination.html](partials/pagination.html) to contain the additional parameters.
+   ```handlebars
+   <li class="page-item {{active}}">
+     <a class="page-link" href="?search={{@root.search}}&genre={{@root.genre}}&sort={{sort}}&page={{page}}">{{page}}</a>
+   </li>
+   ```
+   
+8. Test the combined search, genre, sorting and pagination in your browser.<br/>
+   ![search-combined.png](images/screenshots/search-combined.png)

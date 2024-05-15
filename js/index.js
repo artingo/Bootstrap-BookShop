@@ -3,10 +3,11 @@ function paginate(books) {
   const currentPage = parseInt(params.get('page')) || 1
   const currentSorting = params.get('sort')
   const currentGenre = params.get('genre')
+  const searchTerm = params.get('search')
 
-  const filteredBooks = handleGenres(books, currentGenre)
+  const filteredBooks = handleGenres(books, currentGenre, searchTerm)
   const totalBooks = filteredBooks.length
-  const size = 15
+  const size = 12
 
   const pageCount = Math.ceil(totalBooks / size)
   const pages = createPagingModel(pageCount, currentPage, currentSorting)
@@ -18,6 +19,9 @@ function paginate(books) {
 
   render({
     genres: createGenreModel(currentGenre),
+    genre: currentGenre,
+
+    search: searchTerm,
     sorting: createSortingModel(currentSorting),
     sort: currentSorting,
 
@@ -135,14 +139,29 @@ function createGenreModel(currentGenre) {
   return genres
 }
 
-function handleGenres(books, currentGenre) {
+function handleGenres(books, currentGenre, searchTerm) {
+  let filteredBooks = books
   if (currentGenre) {
-    const filteredBooks = books.filter(function(book) {
+    filteredBooks = books.filter(function(book) {
       return book.genre === currentGenre
     })
-    return filteredBooks
+  }
+  if (searchTerm) {
+    const searchTermLower = searchTerm.toLowerCase()
+    filteredBooks = filteredBooks.filter(function(book) {
+      return book.title.toLowerCase().includes(searchTermLower)
+        || book.author.toLowerCase().includes(searchTermLower)
+    })
   }
   // if genre is empty, return all books
-  return books
+  return filteredBooks
 }
 
+function triggerSearch(searchTerm) {
+  if (searchTerm) {
+    const searchParams = new URLSearchParams(location.search)
+    searchParams.set('search', searchTerm)
+    location.search = searchParams.toString()
+  }
+  return false
+}
