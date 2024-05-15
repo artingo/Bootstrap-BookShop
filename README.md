@@ -420,7 +420,7 @@ When you have a lot of books, it makes sense to filter them by 'genres'. It work
    }
    ```
    
-7. Test the genre filtering in the browser. For instance, if you click on ``, the result should look like this:<br/>
+7. Test the genre filtering in the browser. For instance, if you click on `history`, the result should look like this:<br/>
    ![genre-history.png](images/screenshots/genre-history.png)
 
 
