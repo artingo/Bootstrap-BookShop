@@ -1,3 +1,7 @@
+/**
+ * Paginates, filters, sorts through the list of books, displaying 12 at a time
+ * @param books
+ */
 function paginate(books) {
   const params = new URLSearchParams(location.search)
   const currentPage = parseInt(params.get('page')) || 1
@@ -38,6 +42,13 @@ function paginate(books) {
   })
 }
 
+/**
+ * Creates the Handlebars model to display the pagination links
+ * @param pageCount
+ * @param currentPage
+ * @param currentSorting
+ * @returns {{active: string, page: number, sort: *}[]}
+ */
 function createPagingModel(pageCount, currentPage, currentSorting) {
   return Array.from({length: pageCount}, function (value, index) {
     const page = index + 1
@@ -49,6 +60,10 @@ function createPagingModel(pageCount, currentPage, currentSorting) {
   });
 }
 
+/**
+ * Represents the sorting selection
+ * @type {{ALPHA_UP: string, AUTHOR_UP: string, PRICE_DOWN: string, AUTHOR_DOWN: string, ALPHA_DOWN: string, DEFAULT: string, PRICE_UP: string}}
+ */
 const SORTING = {
   DEFAULT: "Reset Sorting",
   ALPHA_UP: "Name A-Z",
@@ -59,6 +74,11 @@ const SORTING = {
   AUTHOR_DOWN: "Author Z-A",
 }
 
+/**
+ * Creates the Handlebars model to display the sorting selection
+ * @param currentSorting
+ * @returns {*[]}
+ */
 function createSortingModel(currentSorting) {
   const sorting = []
   for (const [key, value] of Object.entries(SORTING)) {
@@ -72,6 +92,12 @@ function createSortingModel(currentSorting) {
   return sorting
 }
 
+/**
+ * Handles the actual sorting
+ * @param books
+ * @param currentSorting
+ * @returns {*}
+ */
 function handleSorting(books, currentSorting) {
   switch (currentSorting) {
     case 'DEFAULT':
@@ -104,13 +130,21 @@ function handleSorting(books, currentSorting) {
   return books
 }
 
-function triggerSorting(element) {
+/**
+ * Is used by the sorting dropdown to change the URL and trigger the sorting
+ * @param select - a HTML `select` field
+ */
+function triggerSorting(select) {
   const searchParams = new URLSearchParams(location.search)
-  searchParams.set('sort', element.value)
+  searchParams.set('sort', select.value)
   searchParams.set('page', "1")
   location.search = searchParams.toString()
 }
 
+/**
+ * Represents the book genres
+ * @type {{economics: string, psychology: string, computer_science: string, fiction: string, mathematics: string, science: string, nonfiction: string, data_science: string, history: string, comic: string, philosophy: string, signal_processing: string}}
+ */
 const GENRES = {
   comic: "Comics",
   computer_science: "Computer Science",
@@ -126,6 +160,11 @@ const GENRES = {
   signal_processing: "Signal Processing"
 }
 
+/**
+ * Creates the Handlebars model to display the genre links
+ * @param currentGenre
+ * @returns {*[]}
+ */
 function createGenreModel(currentGenre) {
   const genres = []
   for (const [key, value] of Object.entries(GENRES)) {
@@ -139,6 +178,13 @@ function createGenreModel(currentGenre) {
   return genres
 }
 
+/**
+ * Handles the actual filtering by the current genre
+ * @param books
+ * @param currentGenre
+ * @param searchTerm
+ * @returns {*}
+ */
 function handleGenres(books, currentGenre, searchTerm) {
   let filteredBooks = books
   if (currentGenre) {
@@ -157,6 +203,11 @@ function handleGenres(books, currentGenre, searchTerm) {
   return filteredBooks
 }
 
+/**
+ * Adds the search term to the URL and triggers the search
+ * @param searchTerm
+ * @returns {boolean}
+ */
 function triggerSearch(searchTerm) {
   if (searchTerm) {
     const searchParams = new URLSearchParams(location.search)

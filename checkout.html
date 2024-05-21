@@ -10,14 +10,16 @@
 
   <script src="js/vendors/handlebars.min.js"></script>
   <script src="js/vanilla.js"></script>
+  <script src="js/checkout.js"></script>
+
   <script type="text/x-handlebars-template">
     {{> partials/htmlHead }}
   </script>
 </head>
 
-<body onload="render()">
+<body onload="initCart()">
 <div>
-  <script type="text/x-handlebars-template">
+  <script id="partial-header" type="text/x-handlebars-template">
     {{> partials/header checkout='active' }}
   </script>
 </div>

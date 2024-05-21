@@ -12,6 +12,7 @@
   <script src="js/vanilla.js"></script>
   <script src="js/data.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/cart.js"></script>
 
   <script type="text/x-handlebars-template">
     {{> partials/htmlHead }}
@@ -19,9 +20,9 @@
 
 </head>
 
-<body onload="paginate(data.books)">
+<body onload="paginate(data.books); initCart('#partial-header')">
 <div>
-  <script type="text/x-handlebars-template">
+  <script id="partial-header" type="text/x-handlebars-template">
     {{> partials/header index='active' }}
   </script>
 </div>
@@ -62,7 +63,7 @@
               </div>
               <span class="price text-primary fw-bold mb-2 fs-5">${{price}}</span>
               <div class="card-concern position-absolute start-0 end-0 d-flex gap-2">
-                <button type="button" href="#" class="btn btn-dark"
+                <button type="button" href="#" class="btn btn-dark" onclick="addToCart({{id}})"
                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
                   <svg class="cart">
                     <use xlink:href="#cart"></use>

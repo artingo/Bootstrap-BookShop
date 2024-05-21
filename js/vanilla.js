@@ -22,17 +22,30 @@ const $on = (element, event, func) => {
 /**
  * Runs through the HTML document and renders all handlebars script tags
  * @param data - the data to be rendered
+ * @param querySelector - an optional querySelector
  * @returns {Promise<void>}
  */
-const render = async (data) => {
-  const templates = $$('[type="text/x-handlebars-template"]')
+const render = async (data, querySelector) => {
+  Handlebars.registerHelper('toFixed', function(num) {
+    return num && num.toFixed(2);
+  });
+
+  const selector = querySelector || '[type="text/x-handlebars-template"]'
+  const templates = $$(selector)
 
   for (const source of templates) {
     await loadPartials(source)
     const template = Handlebars.compile(source.innerHTML)
     const target = source.parentElement
-    if (target.lastElementChild)
-      target.lastElementChild.remove()
+    // remove former HTML elements
+    const numChildren = target.children.length
+    if (numChildren > 1) {
+      const start = querySelector? 0 : 1
+      for (let i = start; i < target.children.length; i++) {
+        target.lastElementChild.remove()
+      }
+    }
+    // insert refreshed HTML elements
     target.insertAdjacentHTML('beforeend', template(data))
   }
 }
@@ -53,3 +66,19 @@ async function loadPartials(code) {
     }
   }
 }
+
+/**
+ * Loads the cart model from the session storage and displays it
+ * @param selector
+ */
+function initCart(selector) {
+  // timeout is necessary to allow rendering of other page parts, first
+  setTimeout(function() {
+    const cartInSession = sessionStorage.getItem("cart")
+    if (cartInSession) {
+      cart = JSON.parse(cartInSession)
+    }
+    render(cart, selector)
+  }, 100)
+}
+
