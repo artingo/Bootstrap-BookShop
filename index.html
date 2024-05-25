@@ -13,6 +13,7 @@
   <script src="js/data.js"></script>
   <script src="js/index.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/shop.js"></script>
 
   <script type="text/x-handlebars-template">
     {{> partials/htmlHead }}
@@ -20,7 +21,7 @@
 
 </head>
 
-<body onload="paginate(data.books); initCart('#partial-header')">
+<body onload="">
 <div>
   <script id="partial-header" type="text/x-handlebars-template">
     {{> partials/header index='active' }}

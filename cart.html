@@ -11,13 +11,14 @@
   <script src="js/vendors/handlebars.min.js"></script>
   <script src="js/vanilla.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/shop.js"></script>
 
   <script type="text/x-handlebars-template">
     {{> partials/htmlHead }}
     </script>
 </head>
 
-<body onload="initCart()">
+<body>
 <div>
   <script id="partial-header" type="text/x-handlebars-template">
     {{> partials/header cart='active' }}
@@ -58,8 +59,7 @@
                     <div class="card-detail">
                       <h5 class="mt-2"><a href="details.html?id={{id}}">{{title}}</a></h5>
                       <div class="card-price">
-                        <span class="price text-primary fw-light" data-currency-usd="$
-">${{price}}</span>
+                        <span class="price text-primary fw-light" data-currency-usd="$">${{toFixed price}}</span>
                       </div>
                     </div>
                   </div>
@@ -146,7 +146,7 @@
   </div>
 </section>
 
-<div class="modal  modal-sm fade" id="confirm-delete" tabindex="-1">
+<div class="modal fade" id="confirm-delete" tabindex="-1">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -159,7 +159,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                onclick="removeFromCart(itemToRemove)">Yes, remove!</button>
+                  onclick="removeFromCart(itemToRemove)">Yes, remove!</button>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
  * Paginates, filters, sorts through the list of books, displaying 12 at a time
  * @param books
  */
-function paginate(books) {
+async function paginate(books) {
   const params = new URLSearchParams(location.search)
   const currentPage = parseInt(params.get('page')) || 1
   const currentSorting = params.get('sort')
@@ -102,28 +102,32 @@ function handleSorting(books, currentSorting) {
   switch (currentSorting) {
     case 'DEFAULT':
     case 'ALPHA_UP':
-      books.sort(function(a, b) {
+      books.sort(function (a, b) {
         return a.title < b.title ? -1 : a.title > b.title ? 1 : 0
       })
       break
     case 'ALPHA_DOWN':
-      books.sort(function(a, b) {
+      books.sort(function (a, b) {
         return a.title < b.title ? 1 : a.title > b.title ? -1 : 0
       })
       break
     case 'PRICE_UP':
-      books.sort(function(a, b) { return a.price - b.price })
+      books.sort(function (a, b) {
+        return a.price - b.price
+      })
       break
     case 'PRICE_DOWN':
-      books.sort(function(a, b) { return b.price - a.price })
+      books.sort(function (a, b) {
+        return b.price - a.price
+      })
       break
     case 'AUTHOR_UP':
-      books.sort(function(a, b) {
+      books.sort(function (a, b) {
         return a.author < b.author ? -1 : a.author > b.author ? 1 : 0
       })
       break
     case 'AUTHOR_DOWN':
-      books.sort(function(a, b) {
+      books.sort(function (a, b) {
         return a.author < b.author ? 1 : a.author > b.author ? -1 : 0
       })
   }
@@ -170,7 +174,7 @@ function createGenreModel(currentGenre) {
   for (const [key, value] of Object.entries(GENRES)) {
     const entry = {
       value: key,
-      active: key === currentGenre? 'active' : '',
+      active: key === currentGenre ? 'active' : '',
       title: value,
     }
     genres.push(entry)
@@ -188,13 +192,13 @@ function createGenreModel(currentGenre) {
 function handleGenres(books, currentGenre, searchTerm) {
   let filteredBooks = books
   if (currentGenre) {
-    filteredBooks = books.filter(function(book) {
+    filteredBooks = books.filter(function (book) {
       return book.genre === currentGenre
     })
   }
   if (searchTerm) {
     const searchTermLower = searchTerm.toLowerCase()
-    filteredBooks = filteredBooks.filter(function(book) {
+    filteredBooks = filteredBooks.filter(function (book) {
       return book.title.toLowerCase().includes(searchTermLower)
         || book.author.toLowerCase().includes(searchTermLower)
     })
@@ -216,3 +220,12 @@ function triggerSearch(searchTerm) {
   }
   return false
 }
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  paginate(data.books)
+  setTimeout(function () {
+    initCart('#partial-header')
+  }, 50)
+})
+

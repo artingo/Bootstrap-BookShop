@@ -1,14 +1,4 @@
 /**
- * The cart object
- * @type {{grandTotal: number, numOfItems: number, items: *[]}}
- */
-let cart = {
-  items: [],
-  numOfItems: 0,
-  grandTotal: 0,
-}
-
-/**
  * The cart item to remove in the confirm dialog
  */
 let itemToRemove;
@@ -16,11 +6,13 @@ let itemToRemove;
 /**
  * Adds an article to the cart.
  * Increases its quantity, if it already exists.
- * @param articleNo
+ * @param articleNo - the article number of the article to add
  */
 function addToCart(articleNo) {
+  // is this a valid shop article?
   const shopItem = findItemInArticles(articleNo)
   if (shopItem) {
+    // is article already in cart?
     let cartItem = findItemInCart(articleNo)
     if (!cartItem) {
       cartItem = shopItem
@@ -59,6 +51,7 @@ function removeFromCart(itemToRemove) {
 function increaseQuantity(item, doRefresh) {
   if (typeof item === "number")
     item = findItemInCart(item)
+
   item.quantity++
   item.showQuantity = (item.quantity > 1)
   item.total += item.price
@@ -96,7 +89,7 @@ function decreaseQuantity(item, doRefresh) {
  * @returns {null|*}
  */
 function findItemInCart(articleNo) {
-  for(const item of cart.items) {
+  for (const item of cart.items) {
     if (item.id === articleNo) return item
   }
   // no cart item with this articleNo was found
@@ -109,7 +102,7 @@ function findItemInCart(articleNo) {
  * @returns {any|null}
  */
 function findItemInArticles(articleNo) {
-  for(const item of data.books) {
+  for (const item of data.books) {
     if (item.id === articleNo) return item
   }
   // no shop item with this articleNo was found
@@ -126,4 +119,7 @@ function refresh(querySelector) {
   render(cart, selector)
 }
 
+/*document.addEventListener("DOMContentLoaded", function (event) {
+  initCart()
+})*/
 

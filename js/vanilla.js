@@ -37,9 +37,9 @@ const render = async (data, querySelector) => {
     await loadPartials(source)
     const template = Handlebars.compile(source.innerHTML)
     const target = source.parentElement
+
     // remove former HTML elements
-    const numChildren = target.children.length
-    if (numChildren > 1) {
+    if (target.children.length > 1) {
       const start = querySelector? 0 : 1
       for (let i = start; i < target.children.length; i++) {
         target.lastElementChild.remove()
@@ -66,19 +66,3 @@ async function loadPartials(code) {
     }
   }
 }
-
-/**
- * Loads the cart model from the session storage and displays it
- * @param selector
- */
-function initCart(selector) {
-  // timeout is necessary to allow rendering of other page parts, first
-  setTimeout(function() {
-    const cartInSession = sessionStorage.getItem("cart")
-    if (cartInSession) {
-      cart = JSON.parse(cartInSession)
-    }
-    render(cart, selector)
-  }, 100)
-}
-
