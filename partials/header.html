@@ -207,15 +207,11 @@
                   <ul class="list-group mb-3">
                     {{#items}}
                     <li class="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                      <div>
-                        <h5>
-                          <a href="details.html?id={{id}}">
-                            {{#if showQuantity}} {{quantity}} × {{/if}}
-                            {{title}}
-                          </a>
-                        </h5>
-                        <small>{{author}}</small>
-                      </div>
+                      <h5><a href="details.html?id={{id}}">
+                          {{#if showQuantity}} {{quantity}} × {{/if}}
+                          {{title}}</a>
+                      </h5>
+                      <small>{{author}}</small>
                       <span class="text-primary">${{toFixed total}}</span>
                     </li>
                     {{/items}}

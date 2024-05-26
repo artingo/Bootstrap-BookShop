@@ -121,7 +121,7 @@ Follow these steps to implement the bookshop:
    ```
 
 ### Partialize the other pages
-In all other HTML files, replace the    static HTML sections with dynamic Handlebars scripts. 
+In all other HTML files, replace the static HTML sections with dynamic Handlebars scripts. 
 
 ## 4. Populate shop with dynamic data
 ### Load books from an external file
@@ -402,7 +402,7 @@ When you have a lot of books, it makes sense to filter them by 'genres'. It work
      render({
        genres: createGenreModel(currentGenre)
        ...
-     }
+     })
    }
    ```
 6. The last step is to actually filter the books array. In JavaScript, you can filter an array by passing a function that decides whether an entry should be returned or not. 
@@ -499,3 +499,214 @@ Finally, we want to be able to search for books by title and author.
    
 8. Test the combined search, genre, sorting and pagination in your browser.<br/>
    ![search-combined.png](images/screenshots/search-combined.png)
+
+## 5. Enable cart functionality
+Now that we can browse through the product range, it's time to fill the shopping cart. To do this, we first implement the addition of an article to the shopping cart.
+
+As the mini shopping cart will appear in the header of every page, we outsource its JavaScript code to a separate [shop.js](js/shop.js) file. First of all, we need an internal data model to map the shopping cart.:
+   ```javascript
+   let cart = {
+      items: [],
+      numOfItems: 0,
+      grandTotal: 0
+   }
+   ```
+
+We also save its status in `SessionStorage` so that we can access it from any page:
+   ```javascript
+   function initCart(querySelector) {
+      const cartInSession = sessionStorage.getItem("cart")
+      if (cartInSession) {
+         cart = JSON.parse(cartInSession)
+      }
+      render(cart, querySelector)
+   }
+   ```
+To update the mini shopping cart in the header, on every page, as soon as the DOM is loaded, it is loaded from the SessionStorage and rendered .
+   ```javascript
+   document.addEventListener("DOMContentLoaded", function (event) {
+     setTimeout(function () {
+       if (cart.numOfItems === 0) {
+         initCart()
+       }
+       // wait 150 milliseconds, so that other Handlebars DOM elements may be created, first!
+     }, 150)
+   })
+   ```
+
+### Add items to cart
+1. First, we add a JavaScript click handler to the shopping cart icon.
+   ```html
+   <button type="button" onclick="addToCart({{id}})">
+     <svg class="cart"><use xlink:href="#cart"></use></svg>
+   </button>
+
+   ```
+2. In `addCart()`, we first check if this is a valid article. Next, we check if this item already exists in the shopping cart. If not, we create a `cartItem` with `quantity` and `total` fields. After that, we add the new `cartItem` to the array of `cart.items`. Last, we increase the `quantity` and refresh the header.
+   ```javascript
+   function addToCart(articleNo) {
+     // is this a valid shop article?
+     const shopItem = findItemInArticles(articleNo)
+     if (shopItem) {
+       // is article already in cart?
+       let cartItem = findItemInCart(articleNo)
+       if (!cartItem) {
+         cartItem = shopItem
+         cartItem.quantity = 0
+         cartItem.total = 0.0
+         cart.items.push(cartItem)
+       }
+       increaseQuantity(cartItem)
+       refresh('#partial-header')
+     } else {
+       console.warn(`Article with id '${articleNo}' doesn't exist`)
+     }
+   }
+   ```
+
+### Increase item number
+In `increaseQuantity()`, we set a couple of field to display in the mini cart, as well as the cart page.
+```javascript
+function increaseQuantity(item, doRefresh) {
+   item.quantity++
+   item.showQuantity = (item.quantity > 1)
+   item.total += item.price
+   cart.numOfItems++
+   cart.grandTotal += item.price
+}
+```
+
+### Store cart items in SessionStorage
+To persists the current cart items temporarily, we store them in the SessionStorage: 
+```javascript
+sessionStorage.setItem("cart", JSON.stringify(cart))
+```
+
+### Show cart items in header
+1. To show the mini cart in the header, we re-render the `#partial-header` and pass the cart data as argument.
+   ```javascript
+   render(cart, '#partial-header')
+   ```
+2. In [header.html](partials/header.html), we iterate over the cart items and display their details.
+   ```handlebars
+   <ul class="list-group mb-3">
+     {{#items}}
+     <li class="...">
+       <h5><a href="details.html?id={{id}}">
+         {{#if showQuantity}} {{quantity}} × {{/if}}
+         {{title}}</a>
+       </h5>
+       <small>{{author}}</small>
+       <span class="text-primary">${{toFixed total}}</span>
+     </li>
+     {{/items}}
+     ...
+   </ul>
+   ```
+
+### Show cart items in cart page
+In [cart.html](cart.html), we display the cart items as a table. We add buttons to increase / decrease their quantity, and a delete icon.  
+```handlebars
+{{#items}}
+<div class="cart-item border-bottom">
+  <div class="row align-items-center">
+
+    <div class="col-lg-4 col-md-3">
+      <img src="{{#if image}}{{image}}{{else}}images/book-placeholder.png{{/if}}">
+      <h5><a href="details.html?id={{id}}">{{title}}</a></h5>
+      <span>${{toFixed price}}</span>
+    </div>
+
+    <div class="col-lg-6 col-md-7">
+      ...
+      <input type="text" name="quantity" value="{{quantity}}">
+      ...
+      <span>${{toFixed total}}</span>
+    </div>
+
+    <div class="col-lg-1 col-md-2">
+      ...
+      <svg><use xlink:href="#cart-cross-outline"></use></svg>
+    </div>
+  </div>
+</div>
+{{/items}}
+```
+
+### Increase and decrease quantity
+1. To increase and decrease the quantity of a cart item, we use buttons that trigger the corresponding JavaScript functions.
+   ```html
+   <button type="button" onclick="decreaseQuantity({{id}})">
+     <svg><use xlink:href="#minus"></use></svg>
+   </button>
+   ...
+   <button type="button" onclick="increaseQuantity({{id}}, true)">
+      <svg><use xlink:href="#plus"></use></svg>
+   </button>
+   ```
+2. Inside `decreaseQuantity()`, we modify the cart model and refresh the Handlebars templates on the page.
+   ```javascript
+   function decreaseQuantity(item) {
+     if (item.quantity > 0) {
+       item.quantity--
+       item.total -= item.price
+       cart.numOfItems--
+       cart.grandTotal -= item.price
+
+       refresh('#partial-header')
+       refresh('#cart-table')
+     }
+   }
+   
+   function refresh(querySelector) {
+     sessionStorage.setItem("cart", JSON.stringify(cart))
+     render(cart, querySelector)
+   }
+   ```
+
+### Remove cart item dialog
+1. As the cart item removal is an irrevocable operation, we display a confirm dialog, before. We also memorize the id of the `itemToRemove`, so we can refer to it, later.
+   ```html
+   <a href="#" data-bs-toggle="modal" data-bs-target="#confirm-delete"
+     onclick="itemToRemove={{id}}">
+     <svg class="cart-cross-outline" width="38" height="38">
+       <use xlink:href="#cart-cross-outline"></use>
+     </svg>
+   </a>
+   ```
+2. The confirm dialog uses standard BootsTrap mechanisms to display and dismiss it.
+   ```html
+   <div class="modal fade" id="confirm-delete" tabindex="-1">
+     <div class="modal-dialog modal-sm">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h1 class="modal-title fs-5">Confirm removal</h1>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+           Do you really want to remove this cart item?
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
+           <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+             onclick="removeFromCart(itemToRemove)">Yes, remove!</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   ```
+3. Finally, we recalculate the cart model, remove the current item from the `cart.items` and display the changes on the page by calling `refresh()`.
+   ```javascript
+   function removeFromCart(articleNo) {
+     const cartItem = findItemInCart(articleNo)
+     if (cartItem) {
+       cart.numOfItems -= cartItem.quantity
+       cart.grandTotal -= cartItem.total
+       const itemIndex = cart.items.indexOf(cartItem)
+       cart.items.splice(itemIndex, 1)
+   
+       refresh('#partial-header')
+       refresh('#cart-table')
+     }
+   }
+   ```

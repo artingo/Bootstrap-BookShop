@@ -73,7 +73,7 @@
                         <span class="input-group-btn">
                           <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-left-minus"
                             data-type="minus" data-field="quantity"
-                            onclick="decreaseQuantity({{id}}, true)">
+                            onclick="decreaseQuantity({{id}})">
                             <svg width="16" height="16">
                               <use xlink:href="#minus"></use>
                             </svg>
@@ -81,7 +81,7 @@
                         </span>
                         <input type="text" name="quantity"
                                class="form-control bg-white shadow border rounded-3 py-2 mx-2 input-number text-center"
-                               value="{{quantity}}" min="1" max="100" required>
+                               value="{{quantity}}" min="1" max="100">
                         <span class="input-group-btn">
                           <button type="button"
                             class="bg-white shadow border rounded-3 fw-light quantity-right-plus"
@@ -150,7 +150,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm removal</h1>
+        <h1 class="modal-title fs-5">Confirm removal</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -159,7 +159,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                  onclick="removeFromCart(itemToRemove)">Yes, remove!</button>
+          onclick="removeFromCart(itemToRemove)">Yes, remove!</button>
       </div>
     </div>
   </div>

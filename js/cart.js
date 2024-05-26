@@ -29,16 +29,17 @@ function addToCart(articleNo) {
 
 /**
  * Removes an item from the cart; is called after the confirm dialog.
- * @param itemToRemove
+ * @param articleNo
  */
-function removeFromCart(itemToRemove) {
-  const cartItem = findItemInCart(itemToRemove)
+function removeFromCart(articleNo) {
+  const cartItem = findItemInCart(articleNo)
   if (cartItem) {
     cart.numOfItems -= cartItem.quantity
     cart.grandTotal -= cartItem.total
     const itemIndex = cart.items.indexOf(cartItem)
     cart.items.splice(itemIndex, 1)
-    refresh()
+
+    refresh('#partial-header')
     refresh('#cart-table')
   }
 }
@@ -46,7 +47,7 @@ function removeFromCart(itemToRemove) {
 /**
  * Increase the quantity of an existing cart item
  * @param item
- * @param doRefresh - trigger a refresh, afterwards
+ * @param doRefresh - trigger a refresh, afterward
  */
 function increaseQuantity(item, doRefresh) {
   if (typeof item === "number")
@@ -57,8 +58,9 @@ function increaseQuantity(item, doRefresh) {
   item.total += item.price
   cart.numOfItems++
   cart.grandTotal += item.price
+
   if (doRefresh) {
-    refresh()
+    refresh('#partial-header')
     refresh('#cart-table')
   }
 }
@@ -66,20 +68,19 @@ function increaseQuantity(item, doRefresh) {
 /**
  * Decrease the quantity of an existing cart item
  * @param item
- * @param doRefresh - trigger a refresh, afterwards
  */
-function decreaseQuantity(item, doRefresh) {
+function decreaseQuantity(item) {
   if (typeof item === "number")
     item = findItemInCart(item)
+
   if (item.quantity > 0) {
     item.quantity--
     item.total -= item.price
     cart.numOfItems--
     cart.grandTotal -= item.price
-    if (doRefresh) {
-      refresh()
-      refresh('#cart-table')
-    }
+
+    refresh('#partial-header')
+    refresh('#cart-table')
   }
 }
 
@@ -114,12 +115,6 @@ function findItemInArticles(articleNo) {
  * @param querySelector
  */
 function refresh(querySelector) {
-  const selector = querySelector || '#partial-header'
   sessionStorage.setItem("cart", JSON.stringify(cart))
-  render(cart, selector)
+  render(cart, querySelector)
 }
-
-/*document.addEventListener("DOMContentLoaded", function (event) {
-  initCart()
-})*/
-
