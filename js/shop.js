@@ -26,6 +26,14 @@ function initCart(querySelector) {
   render(cart, querySelector)
 }
 
+function clearCart() {
+  cart.items = []
+  cart.numOfItems = 0
+  cart.grandTotal = 0
+  sessionStorage.setItem("cart", JSON.stringify(cart))
+}
+
+
 // only initialize after the static HTML content has been fully loaded!
 document.addEventListener("DOMContentLoaded", function (event) {
   setTimeout(function () {
